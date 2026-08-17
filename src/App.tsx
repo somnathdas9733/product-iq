@@ -83,7 +83,8 @@ export default function App() {
       });
 
       if (!response.ok) {
-        throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || errorData.details || `Server returned ${response.status}: ${response.statusText}`);
       }
 
       const result: ProductIntelligence = await response.json();
