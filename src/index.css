@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@layer base {
+  body, button, input, textarea, select {
+    font-family: 'Google Sans', 'Product Sans', 'Open Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #09090b;
+    color: #f4f4f5;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+.bg-bento-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+}
+
+.bento-card {
+  background-color: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 1.75rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bento-card:hover {
+  border-color: #3f3f46;
+}
+
+.bento-card-subtle {
+  background-color: #09090b;
+  border: 1px solid #27272a;
+  border-radius: 1.25rem;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+

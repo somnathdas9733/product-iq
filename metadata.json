@@ -1,0 +1,6 @@
+{
+  "name": "ProductIQ",
+  "description": "AI-Powered Product Intelligence for Manufacturers converting raw product specs into commerce-ready, validated catalog listings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
