@@ -31,19 +31,16 @@ function getGeminiClient(): GoogleGenAI | null {
 export const app = express();
 app.use(express.json({ limit: '25mb' }));
 
-async function startServer() {
-  const PORT = 3000;
-
-  // API Route: Health Check
-  app.get('/api/health', (req, res) => {
-    res.json({
-      status: 'ok',
-      hasApiKey: !!process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'MY_GEMINI_API_KEY',
-    });
+// API Route: Health Check
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    hasApiKey: !!process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'MY_GEMINI_API_KEY',
   });
+});
 
-  // API Route: Generate Product Intelligence
-  app.post('/api/generate', async (req, res) => {
+// API Route: Generate Product Intelligence
+app.post('/api/generate', async (req, res) => {
     try {
       const { productName, category, material, specifications, applications, additionalInfo } = req.body;
 
@@ -291,6 +288,9 @@ Only extract facts present in the source. Do NOT hallucinate.`;
       return res.status(500).json({ error: 'Failed to extract data from document', details: err?.message });
     }
   });
+
+async function startServer() {
+  const PORT = 3000;
 
   // Vite middleware in dev mode
   if (process.env.NODE_ENV !== 'production') {
