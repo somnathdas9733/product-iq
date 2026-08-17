@@ -87,13 +87,13 @@ export const IntelligenceDashboard: React.FC<IntelligenceDashboardProps> = ({
           </div>
         </div>
 
-        {/* Navigation Tabs & Action Buttons */}
-        <div className="mt-6 sm:mt-8 pt-6 border-t border-zinc-800/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 relative z-10">
-          {/* Sub-View Tabs (Scrollable on Mobile) */}
-          <div className="flex items-center p-1.5 bg-zinc-950 border border-zinc-800 rounded-2xl text-xs sm:text-sm overflow-x-auto no-scrollbar max-w-full">
+        {/* Navigation Tabs & Action Buttons (Stacked in Two Clear Lines) */}
+        <div className="mt-6 sm:mt-8 pt-6 border-t border-zinc-800/80 space-y-4 relative z-10">
+          {/* Upper Line: Sub-View Tabs */}
+          <div className="flex items-center p-1.5 bg-zinc-950 border border-zinc-800 rounded-2xl text-xs sm:text-sm overflow-x-auto no-scrollbar w-full sm:w-fit">
             <button
               onClick={() => setActiveTab('visual')}
-              className={`px-3.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer whitespace-nowrap ${
+              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'visual'
                   ? 'bg-zinc-800 text-white shadow-sm'
                   : 'text-zinc-400 hover:text-zinc-200'
@@ -103,7 +103,7 @@ export const IntelligenceDashboard: React.FC<IntelligenceDashboardProps> = ({
             </button>
             <button
               onClick={() => setActiveTab('validation')}
-              className={`px-3.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                 activeTab === 'validation'
                   ? 'bg-zinc-800 text-white shadow-sm'
                   : 'text-zinc-400 hover:text-zinc-200'
@@ -116,7 +116,7 @@ export const IntelligenceDashboard: React.FC<IntelligenceDashboardProps> = ({
             </button>
             <button
               onClick={() => setActiveTab('traceability')}
-              className={`px-3.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer whitespace-nowrap ${
+              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'traceability'
                   ? 'bg-zinc-800 text-white shadow-sm'
                   : 'text-zinc-400 hover:text-zinc-200'
@@ -126,7 +126,7 @@ export const IntelligenceDashboard: React.FC<IntelligenceDashboardProps> = ({
             </button>
             <button
               onClick={() => setActiveTab('json')}
-              className={`px-3.5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+              className={`px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                 activeTab === 'json'
                   ? 'bg-zinc-800 text-white shadow-sm'
                   : 'text-zinc-400 hover:text-zinc-200'
@@ -137,12 +137,12 @@ export const IntelligenceDashboard: React.FC<IntelligenceDashboardProps> = ({
             </button>
           </div>
 
-          {/* Export Buttons */}
-          <div className="flex items-center justify-between sm:justify-end gap-2.5 w-full sm:w-auto">
+          {/* Next Line: Action & Export Buttons */}
+          <div className="flex flex-wrap items-center gap-3">
             <button
               type="button"
               onClick={handleDownloadJSON}
-              className="flex-1 sm:flex-initial px-4 sm:px-5 py-2.5 rounded-2xl bg-white hover:bg-zinc-100 text-black font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(255,255,255,0.15)] cursor-pointer"
+              className="px-5 py-2.5 rounded-2xl bg-white hover:bg-zinc-100 text-black font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(255,255,255,0.15)] cursor-pointer"
             >
               <Download className="w-4 h-4 text-black" />
               <span>Download JSON</span>
@@ -163,7 +163,7 @@ export const IntelligenceDashboard: React.FC<IntelligenceDashboardProps> = ({
               className="px-4 py-2.5 rounded-2xl bg-zinc-800 hover:bg-zinc-700 text-white text-xs sm:text-sm font-bold border border-zinc-700 transition-colors flex items-center gap-2 cursor-pointer active:scale-[0.98]"
             >
               <Sparkles className="w-4 h-4 text-indigo-400" />
-              <span className="hidden sm:inline">Regenerate</span>
+              <span>Regenerate</span>
             </button>
           </div>
         </div>
